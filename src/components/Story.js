@@ -1,18 +1,20 @@
 import React from "react";
 
 const Link = ({ url, title }) => {
-  <a href={url} target="_blank" rel="noreferrer">
-    {title}
-  </a>;
+  <a href={url}>{title}</a>;
 };
 
 const Story = ({ story: { id, by, title, kids, time, url } }) => {
+  console.log(`${id} ${by} ${title} ${kids} ${time} ${url}`);
   return (
     <div className="story">
+      {/* <p>
+        `${id} ${by} ${title} ${kids} ${time} ${url}`
+      </p> */}
       <div className="story-title">
         <Link url={url} title={title} />
       </div>
-      <div className="story-info">
+      {/*<div className="story-info">
         <span>
           by{" "}
           <Link url={`https://news.ycombinator.com/user?id${by}`} title={by} />
@@ -29,7 +31,7 @@ const Story = ({ story: { id, by, title, kids, time, url } }) => {
             title={`${kids && kids.length > 0 ? kids.length : 0} comments`}
           />
         </span>
-      </div>
+      </div> */}
     </div>
   );
 };
