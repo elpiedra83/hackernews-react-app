@@ -3,14 +3,14 @@ import { BASE_API_URL } from "./constants";
 
 const getStory = async (id) => {
   try {
-    const story = await axios.get(`${BASE_API_URL}/item/${id}.josn`);
+    const story = await axios.get(`${BASE_API_URL}/item/${id}.json`);
     return story;
   } catch (error) {
     console.log("Error while getting a story");
   }
 };
 
-export default getStories = async (type) => {
+export const getStories = async (type) => {
   try {
     const { data: storyIds } = await axios.get(
       `${BASE_API_URL}/${type}stories.json`
