@@ -1,37 +1,31 @@
 import React from "react";
 
-const Link = ({ url, title }) => {
-  <a href={url}>{title}</a>;
-};
+const Link = ({ url, title }) => <a href={url}>{title}</a>;
 
 const Story = ({ story: { id, by, title, kids, time, url } }) => {
-  console.log(`${id} ${by} ${title} ${kids} ${time} ${url}`);
   return (
     <div className="story">
-      {/* <p>
-        `${id} ${by} ${title} ${kids} ${time} ${url}`
-      </p> */}
+      <span className="story-date-time">
+        {new Date(time * 1000).toLocaleDateString("en-US", {
+          hour: "numeric",
+          minute: "numeric",
+        })}
+      </span>
       <div className="story-title">
-        <Link url={url} title={title} />
+        <a href={url}>{title}</a>
       </div>
-      {/*<div className="story-info">
-        <span>
+      <div className="story-info">
+        <span className="story-author">
           by{" "}
           <Link url={`https://news.ycombinator.com/user?id${by}`} title={by} />
         </span>
-        <span>
-          {new Date(time * 1000).toLocaleDateString("en-US", {
-            hour: "numeric",
-            minute: "numeric",
-          })}
-        </span>
-        <span>
+        <span className="story-comments">
           <Link
             url={`https://news.ycombinator.com/item?id=${id}`}
             title={`${kids && kids.length > 0 ? kids.length : 0} comments`}
           />
         </span>
-      </div> */}
+      </div>
     </div>
   );
 };

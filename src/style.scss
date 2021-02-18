@@ -1,5 +1,6 @@
-$base-text-color: #e17055;
-$link-color: #b55a44;
+$base-text-color: #272423;
+$link-color: #ff9933;
+$background: #efefef;
 
 * {
   margin: 0;
@@ -11,6 +12,7 @@ body {
   font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 1px;
   color: $base-text-color;
+  background-color: $background;
 }
 
 h1 {
@@ -71,34 +73,59 @@ h1 {
   }
 }
 
-.story {
-  width: 80%;
-  margin: 10px auto;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
+.stories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
+  gap: 1rem;
+  .story {
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 16px 16px 8px -16px #ccc;
+    display: grid;
+    gap: 0.5rem;
+    align-content: end;
 
-  .story-title {
-    margin-bottom: 4px;
-    a:link,
-    a:visited {
-      font-size: 18px;
-      color: $base-text-color;
+    .story-title {
+      margin-bottom: 4px;
+      max-width: 100%;
+      overflow: hidden;
+      // white-space: nowrap;
+      text-overflow: ellipsis;
+      a:link,
+      a:visited {
+        font-size: 18px;
+        color: $base-text-color;
+      }
+
+      a:hover,
+      a:active {
+        text-decoration: none;
+      }
     }
 
-    a:hover,
-    a:active {
-      text-decoration: none;
+    .story-info {
+      color: $link-color;
+      span {
+        margin: 4px;
+      }
+      a {
+        color: inherit;
+      }
     }
-  }
 
-  .story-info {
-    color: $link-color;
-    span {
-      margin: 4px;
+    .story-author {
+      color: #aaa;
+      font-size: 0.9rem;
     }
-    a {
-      color: inherit;
+
+    .story-date-time {
+      font-size: 0.8rem;
+    }
+
+    .story-comments {
+      float: right;
     }
   }
 }
